@@ -2,13 +2,28 @@
 <html>
     <head>
         <title>Rock Paper Scissors!</title>
+        <script type="text/javascript" src="index.js"></script>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <p>Computer has 3 options. 
-            picks between 3 randomly
+        <header>
+            <h1>Rock Paper Scissors</h1>
+        </header>
+        <div class="scoreboard">
+            <div id="player">Player Score</div>
+            <div id="comp">Comp Score</div>
+            <span id="user-score">0</span>:<span id="comp-score">0</span>
+        </div>
+        <p class="buttons">
+            <button onclick="playerSelect('Rock')" id="button">Rock</button>
+            <button onclick="playerSelect('Paper')" id="button" >Paper</button>
+            <button onclick="playerSelect('Scissors')" id="button" >Scissors</button>
         </p>
-        <script>
-        </script>
+        <p>
+            <button id="reset" onclick=>Reset</button>
+        </p>
+       
+
     </body>
 </html>
 
