@@ -15,14 +15,16 @@
             <span id="user-score">0</span>:<span id="comp-score">0</span>
         </div>
         <p class="buttons">
-            <button onclick="playerSelect('Rock')" id="button">Rock</button>
-            <button onclick="playerSelect('Paper')" id="button" >Paper</button>
-            <button onclick="playerSelect('Scissors')" id="button" >Scissors</button>
+            <button class="button" onclick="playerRock('r')" id="r">Rock</button>
+            <button class="button" onclick="playerPaper('p')" id="p" >Paper</button>
+            <button class="button" onclick="playerScissor('s')" id="s" >Scissors</button>
         </p>
         <p>
             <button id="reset" onclick=>Reset</button>
         </p>
-       
+       <div class="result">
+           <span id="result">Result</span>
+       </div>
 
     </body>
 </html>
