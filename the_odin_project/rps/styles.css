@@ -88,3 +88,16 @@ body {
     font-family: 'Lato', sans-serif;
 
 }
+
+#final {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size:25px;
+}
+.intro {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    padding:10px;
+    height:40px;
+}

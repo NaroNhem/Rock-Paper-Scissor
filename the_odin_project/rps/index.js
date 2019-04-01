@@ -1,7 +1,5 @@
 let userScore = 0;
 let compScore = 0;
-let userScore_span = document.getElementById("user-score"); //_span is a indicator that this var is from the html. makes it easy for me to identify where it correlates too.
-let compScore_span = document.getElementById("comp-score"); // 
 let scoreboard_div = document.querySelector(".scoreboard");
 let result_div = document.querySelector(".result");
 let rock_div = document.getElementById("r");
@@ -18,29 +16,85 @@ function getCompChoice(){
     return choices[randomNumber];// assigning the elements in the array to a whole number.
 }
 
+function win (){
+    document.getElementById('user-score').innerHTML = userScore;
+    document.getElementById('comp-score').innerHTML = compScore;
+    document.getElementById('final').innerHTML ='';
+    document.getElementById('intro').innerHTML ='';
+    
+    }
+
+
 function game(userChoice){
     let compChoice = getCompChoice(); // creates a new variable for this function and have it equal to whatever the computer choice is from the above function
     console.log(userChoice + '   ' + compChoice)
     if (userChoice == compChoice){
-        console.log('its a tie');
+        document.getElementById('result').innerHTML= "Its a Tie";
+        document.getElementById('final').innerHTML ='';
+        document.getElementById('intro').innerHTML ='';
     }
     else if (userChoice == 'r'){
         if (compChoice == 'p'){
-        console.log('You lose');
-        compScore += 1;
+            console.log('You lose');
+            compScore += 1;
+            win();
+            document.getElementById('result').innerHTML= "You chose rock, opponent chose paper. You lose.";
+            }
+            else if (compChoice == 's'){
+            console.log('You win'); 
+            userScore +=1;  
+            console.log(userScore);
+            win();
+            document.getElementById('result').innerHTML= "You chose rock, opponent chose scissors. You win.";
+            }
+    }
+    else if (userChoice == 'p'){
+        if (compChoice == 'r'){
+            console.log('you win');
+            userScore +=1;
+            console.log(userScore);
+            win();
+            document.getElementById('result').innerHTML= "You chose paper, opponent chose rock. You win.";
         }
-        else if (compChoice == 's'){
-        console.log('You win'); 
-        userScore +=1;  
-        console.log(userScore);
+        else if(compChoice == 's' ){
+            console.log('you lose');
+            compScore +=1;
+            win();
+            document.getElementById('result').innerHTML= "You chose paper, opponent chose scissor. You lose.";
         }
     }
-    else if (userchoice == 'p'){
+    else if (userChoice == 's'){
         if (compChoice == 'r'){
             console.log('you lose');
+            compScore +=1;
+            win();
+            document.getElementById('result').innerHTML= "You chose scissor, opponent chose rock. You lose.";
+            }
+        else if (compChoice == 'p'){
+            console.log('you win')
+            userScore +=1;
+            win();
+            document.getElementById('result').innerHTML= "You chose scissor, opponent chose paper. You win.";
         }
     }
+    if (userScore == 5){
+        document.getElementById('final').innerHTML = 'Congratulations! You have beaten the ai!';
+        reset();
+    }
+    else if (compScore == 5){
+        document.getElementById('final').innerHTML = 'You lost. Try again?';
+        reset();
+    }
 }
+
+function reset() {
+    userScore = 0;
+    compScore = 0;
+    document.getElementById('result').innerHTML = "The game has been reset.";
+    document.getElementById('user-score').innerHTML = '0';
+    document.getElementById('comp-score').innerHTML = '0';
+}
+
 
 function playerRock() { // function for the rock button; assigns 'r' to the button 
     game('r');

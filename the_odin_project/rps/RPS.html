@@ -9,6 +9,9 @@
         <header>
             <h1>Rock Paper Scissors</h1>
         </header>
+        <div class="intro">
+            <p id="intro"> This is a simple game of Rock Paper Scissors. The first to 5 wins will be the winner and the game will automatically reset. Good luck!</p>
+        </div>
         <div class="scoreboard">
             <div id="player">Player Score</div>
             <div id="comp">Comp Score</div>
@@ -20,10 +23,13 @@
             <button class="button" onclick="playerScissor('s')" id="s" >Scissors</button>
         </p>
         <p>
-            <button id="reset" onclick=>Reset</button>
+            <button onclick="reset()" id="reset" >Reset</button>
         </p>
        <div class="result">
            <span id="result">Result</span>
+       </div>
+       <div class="final">
+           <span id="final"></span>
        </div>
 
     </body>
